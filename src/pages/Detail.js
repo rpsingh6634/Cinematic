@@ -13,29 +13,29 @@ const Detail = _ => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [flag, setFlag] = useState(false);
-  const [favorites, setFavorites] = useLocalStorage("mostFavorites", "[]");
-  const [isFavorite, setFavorite] = useState(false);
+  const [favourites, setFavourites] = useLocalStorage("favourites", "[]");
+  const [isFavourite, setFavourite] = useState(false);
 
   useEffect(_ => {
-    const favs = JSON.parse(favorites);
+    const favs = JSON.parse(favourites);
     if(favs.includes(id)) {
-      setFavorite(true);
+      setFavourite(true);
     } else {
-      setFavorite(false);
+      setFavourite(false);
     }
-  }, [favorites, id]);
+  }, [favourites, id]);
 
-  const toggleFavorite = _ => {
-    const favs = JSON.parse(favorites);
-    if(isFavorite) {
+  const toggleFavourite = _ => {
+    const favs = JSON.parse(favourites);
+    if(isFavourite) {
       const idx = favs.indexOf(id);
       favs.splice(idx, 1);
-      setFavorite(false);
+      setFavourite(false);
     } else {
       favs.push(id);
-      setFavorite(true);
+      setFavourite(true);
     }
-    setFavorites(JSON.stringify(favs));
+    setFavourites(JSON.stringify(favs));
   }
 
   useEffect(_ => {
@@ -68,8 +68,8 @@ const Detail = _ => {
               <Typography variant="h4">
                 {data.Title}
                 &nbsp;
-                <IconButton size="large" color="error" onClick={toggleFavorite}>
-                  {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
+                <IconButton size="large" color="error" onClick={toggleFavourite}>
+                  {isFavourite ? <FavoriteIcon /> : <FavoriteBorderIcon /> }
                 </IconButton>
               </Typography>
               <Typography>

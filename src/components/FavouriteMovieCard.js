@@ -3,7 +3,7 @@ import { omdb } from "../utils";
 import { Grid, Card, CardMedia, CardContent, Typography, CardActionArea } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
-const FavoriteMovieCard = ({ id }) => {
+const FavouriteMovieCard = ({ id }) => {
   const [data, setData] = useState({});
   const navigate = useNavigate();
 
@@ -36,4 +36,4 @@ const FavoriteMovieCard = ({ id }) => {
   )
 }
 
-export default FavoriteMovieCard;
+export default FavouriteMovieCard;

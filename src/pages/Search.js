@@ -43,8 +43,7 @@ const Search = _ => {
     <>
       <Box p={5}>
         <Typography>{totalRecords} results found</Typography>
-
-        <InfiniteScroll
+         <InfiniteScroll
           pageStart={1}
           loadMore={loadData}
           hasMore={(totalRecords === 0) || (list.length < totalRecords)}
